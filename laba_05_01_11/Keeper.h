@@ -22,5 +22,6 @@ public:
 	void print();
 	void elems_menu(size_t position);
 	size_t size();
+	Queue*& operator[](size_t const& index);
 };
 
