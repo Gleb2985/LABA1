@@ -1,17 +1,27 @@
 #pragma once
+#include <iostream>
+#include <string>
 class Queue
 {
 protected:
-	size_t size = 0;
+	size_t _size = 0;
 	class Element
 	{
+	public:
 		int data = 0;
-		int* prev = nullptr;
-		int* next = nullptr;
+		Element* prev = nullptr;
+		Element* next = nullptr;
 	};
+	Element* last = nullptr;
+	Element* first = nullptr;
 
 public:
-	virtual bool isEmpty() = 0;	// возвращает true, если стек пуст
-	virtual int  top() = 0;		// возвращает верхний элемент без удаления из стека
+	Queue();
+	virtual ~Queue();
+	virtual void menu() = 0;
+	virtual bool is_empty() = 0;	// возвращает true, если пуст
+	virtual int& top() = 0;		// возвращает верхний элемент без удаления
+	virtual std::string get_string_data() = 0;
+	virtual std::string get_print_data() = 0;
 };
 
